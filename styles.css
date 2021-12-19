@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Dosis:wght@300&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #fef08a;
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-family: 'Dosis', sans-serif;
+}
+
+.heading{
+    padding: 3rem 0rem;
+    text-align: center;
+}
+.input-class{
+text-align: center;
+}
+.submit-class{
+    padding: 1rem;
+text-align: center;
+}
+
+.answere{
+    font-size: larger;
+    font-weight: bolder;
+}
