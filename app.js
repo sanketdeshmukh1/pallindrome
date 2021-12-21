@@ -1,36 +1,59 @@
 const dateip=document.querySelector(".ip");
 const btn=document.querySelector(".bttn");
-const ans=document.querySelector('.answer');
+const ans=document.querySelector(".answer");
 
-function cnvrtdate(dateipnew){
+function reverse1(date11){
+var datesp= date11.split('');
+var temp= datesp.reverse();
+var tempf=temp.join('');
+return tempf;
+}
 
- var strdatetemp={ day: '', month: '', year: ''};
-
- if(strdatetemp.day<10){
-     strdatetemp.day='0'+dateipnew.day;
- }
+function ispalindrome1(date1){
+var date2=reverse1(date1);
+console.log(date1)
+console.log(date2)
+if(date1===date2)
+{
+    return true;
+}
 else{
-    strdatetemp.day=dateipnew.day.toString();
+    return false;
 }
 
-if(strdatetemp.month<10){
-    strdatetemp.month='0'+dateipnew.month;
+}
+
+function cnvrtdate(dateipnew1){
+
+
+ var strdatetemp = { day: '', month: '', year: ''};
+ 
+ if(dateipnew1.day < 10){
+ 
+   strdatetemp.day='0'+ dateipnew1.day; 
 }
 else{
-   strdatetemp.month=dateipnew.month.toString();
+    strdatetemp.day=dateipnew1.day.toString();
 }
 
-strdatetemp.year=dateipnew.year.toString();
+if(dateipnew1.month < 10){
+    strdatetemp.month='0'+dateipnew1.month;
+}
+else{
+   strdatetemp.month=dateipnew1.month.toString();
+}
+
+strdatetemp.year=dateipnew1.year.toString();
+
 
 return strdatetemp;
 
 }
 
-function getalldatefrmt(){
+function getalldatefrmt(cdate){
+    
     const dateipnew=cdate;  
-    console.log(cdate);
-    console.log(dateipnew);
-                      //dateip.value;
+                  
 var strdate=cnvrtdate(dateipnew);
 
 var ddmmyyyy = strdate.day + strdate.month + strdate.year ;
@@ -43,30 +66,29 @@ return [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyy,mmddyy,yymmdd];
 
 }
 
-var cdate= {
-    day: 2,
-    month: 4,
-    year: 2011
-};
+
 
 function palinbday(){
-//     // const dateipnew=cdate;  
-//     // console.log(cdate);
-//     // console.log(dateipnew);
-//     //                   //dateip.value;
-// var strdate=cnvrtdate(dateipnew);
-// console.log(strdate);
-var qq=getalldatefrmt();
-console.log(qq)
+   var datenf=dateip.value.split('-');
+   
+     var datef = {
+day: Number(datenf[2]),
+month: Number(datenf[1]),
+year: Number(datenf[0])
+     };
 
-    // var av=['a','b','c'];
-// var datewohyp=dateipnew.split('');
-// console.log(datewohyp);
-// var revdate=datewohyp.reverse();
-// var revstr=revdate.join('');
-// console.log(revdate);
+  var alldatef= getalldatefrmt(datef);
 
+    for(let i=0;i<alldatef.length;i++){
 
+        if(ispalindrome1(alldatef[i])){
+ ans.innerText="Palindrom hai";
+ break;
+        }
+        else{
+            ans.innerText="Palindrom nahi";
+        }
+    }
 }
 
 btn.addEventListener("click",palinbday);
